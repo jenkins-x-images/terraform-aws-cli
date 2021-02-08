@@ -37,8 +37,8 @@ jobs:
         build-args: |
           VERSION=${{ steps.prep.outputs.version}}
         tags: |
-          ghcr.io/${{ github.repository }}:latest
-          ghcr.io/${{ github.repository }}:${{ steps.prep.outputs.version }}
+          ghcr.io/jenkins-x/terraform-aws:latest
+          ghcr.io/jenkins-x/terraform-aws:${{ steps.prep.outputs.version }}
 "on":
   push:
     branches:
