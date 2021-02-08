@@ -17,9 +17,12 @@ jobs:
       with:
         args: -c "echo ::set-output name=version::$(jx-release-version)"
         entrypoint: bash
-    - run: |
-        echo "pushing tags"
-        git push --tags
+    - env:
+        VERSION: ${{ steps.prep.outputs.version }}
+      run: |
+        echo "tagging version $VERSION"
+        git tag -fa v$VERSION -m "Release version $VERSION"
+        git push --force origin v$VERSION
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     - name: Set up Docker Buildx
