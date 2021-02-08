@@ -17,14 +17,6 @@ jobs:
       with:
         args: -c "echo ::set-output name=version::$(jx-release-version)"
         entrypoint: bash
-    - env:
-        GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
-        REPO_NAME: ${{ github.event.repository.name }}
-        VERSION: ${{ steps.prep.outputs.version}}
-      name: changelog
-      uses: docker://gcr.io/jenkinsxio/jx-changelog:0.0.30
-      with:
-        entrypoint: .github/workflows/jenkins-x/changelog.sh
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     - name: Set up Docker Buildx
