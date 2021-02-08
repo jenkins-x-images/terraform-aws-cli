@@ -21,6 +21,8 @@ jobs:
         VERSION: ${{ steps.prep.outputs.version }}
       run: |
         echo "tagging version $VERSION"
+        git config --global user.email "james.strachan@gmail.com"
+        git config --global user.name "jstrachan"
         git tag -fa v$VERSION -m "Release version $VERSION"
         git push --force origin v$VERSION
     - name: Set up QEMU
