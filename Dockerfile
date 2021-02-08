@@ -18,3 +18,7 @@ RUN curl -o go.tar.gz -L https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar
   tar -C /usr/local -xzf go.tar.gz && \
   rm go.tar.gz
 
+ENV GOROOT /usr/local/go
+ENV GOPATH /home/go
+
+ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
