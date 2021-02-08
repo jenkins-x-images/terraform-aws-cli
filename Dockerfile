@@ -14,7 +14,7 @@ RUN curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/
     mv aws-iam-authenticator /usr/bin/aws-iam-authenticator
 
 ENV GOLANG_VERSION 1.15.6
-RUN curl -L https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz > go.tar.gz && \
+RUN curl -o go.tar.gz -L https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz && \
   tar -C /usr/local -xzf go.tar.gz && \
   rm go.tar.gz
 
