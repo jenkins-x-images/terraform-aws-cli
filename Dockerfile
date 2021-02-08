@@ -2,8 +2,7 @@ FROM golang:1.15
 
 ENV TERRAFORM=0.14.6
 
-RUN yum update && \
-  yum -y install unzip tar make git
+RUN apt-get update -y && apt-get install -y unzip
 
 RUN curl -L https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip > tf.zip && \
   unzip tf.zip && \
