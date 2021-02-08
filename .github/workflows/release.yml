@@ -25,12 +25,10 @@ jobs:
     strategy:
       matrix:
         tf_version:
-          - "0.11.14"
-          - "0.12.29"
           - "0.13.5"
           - "0.14.0"
+          - "0.14.6"
         awscli_version:
-          - "1.18.166"
           - "1.18.189"
 
     env:
