@@ -8,6 +8,10 @@ RUN curl -L https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TE
   unzip tf.zip && \
   chmod +x terraform && mv terraform /usr/bin/terraform && rm tf.zip
 
+
+RUN curl -L "https://github.com/tfsec/tfsec/releases/download/v0.37.3/tfsec-linux-amd64" > tfsec && \
+  chmod +x tfsec && mv tfsec /usr/bin/tfsec
+
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
   unzip awscliv2.zip > /dev/null && \
   ./aws/install
