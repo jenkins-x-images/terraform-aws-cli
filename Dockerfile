@@ -1,6 +1,6 @@
 FROM golang:1.15
 
-ENV TERRAFORM=0.13.0
+ENV TERRAFORM=0.14.6
 
 RUN apt-get update -y && apt-get install -y unzip
 
